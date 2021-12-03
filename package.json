@@ -1,0 +1,14 @@
+{
+  "name": "service-error",
+  "version": "1.0.0",
+  "description": "Error class with JSON format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "error"
+  ],
+  "author": "Tamil Vendhan Kanagarasu",
+  "license": "ISC"
+}
