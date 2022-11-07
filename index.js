@@ -19,6 +19,44 @@ class ServiceError extends Error {
 
   }
 
+  toJSON() {
+
+    return ({
+      metadata: this.metadata,
+      code: this.code
+    });
+
+  }
+
+  static toJSON(exception, message, startupId) {
+
+    if (exception instanceof ServiceError) {
+
+      return {
+        ...exception.toJSON(),
+        message,
+        startupId
+      };
+
+    }
+
+    const data = {};
+    const ownPropertyNames = Object.getOwnPropertyNames(exception);
+
+    for (let propertyName of ownPropertyNames) {
+
+      data[propertyName] = exception[propertyName];
+
+    }
+
+    if (data.message !== void 0) {
+      data.errorMessage = data.message;
+    }
+
+    return { ...data, startupId, message };
+
+  }
+
 }
 
 module.exports = ServiceError;
