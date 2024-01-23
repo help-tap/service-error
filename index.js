@@ -14,7 +14,8 @@ class ServiceError extends Error {
 
     return JSON.stringify({
       metadata: this.metadata,
-      code: this.code
+      code: this.code,
+      stack: this.stack
     });
 
   }
@@ -23,7 +24,8 @@ class ServiceError extends Error {
 
     return ({
       metadata: this.metadata,
-      code: this.code
+      code: this.code,
+      stack: this.stack
     });
 
   }
